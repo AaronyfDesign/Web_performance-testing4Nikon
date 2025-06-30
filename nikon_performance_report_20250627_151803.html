@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>尼康官网自动化性能测试报告</title>
+    <style>
+        body { font-family: 'Microsoft YaHei', sans-serif; margin: 20px; }
+        .header { background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        .summary { background-color: #e9ecef; padding: 15px; border-radius: 6px; margin-bottom: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; font-weight: bold; }
+        .excellent { color: #28a745; font-weight: bold; }
+        .good { color: #17a2b8; font-weight: bold; }
+        .acceptable { color: #ffc107; font-weight: bold; }
+        .poor { color: #dc3545; font-weight: bold; }
+        .metric { background-color: #f8f9fa; padding: 10px; border-radius: 4px; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏮 尼康官网自动化性能测试报告</h1>
+        <p><strong>测试时间:</strong> 20250627 151803</p>
+        <p><strong>测试网站:</strong> https://my.nikon.com.cn</p>
+        <p><strong>测试类型:</strong> 页面性能测试 + 交互响应测试</p>
+    </div>
+    
+    <div class="summary">
+        <h2>📊 测试概览</h2>
+        <div class="metric">页面性能测试数量: 5</div>
+        <div class="metric">交互操作测试数量: 4</div>
+    </div>
+
+    <h2>🚀 页面性能测试结果</h2>
+    <table>
+        <tr>
+            <th>页面名称</th>
+            <th>性能评分</th>
+            <th>性能等级</th>
+            <th>首次内容绘制 (ms)</th>
+            <th>最大内容绘制 (ms)</th>
+            <th>速度指数</th>
+            <th>累计布局偏移</th>
+        </tr>
+
+        <tr>
+            <td>首页</td>
+            <td>33.0</td>
+            <td class="poor">差</td>
+            <td>15883</td>
+            <td>59096</td>
+            <td>18963</td>
+            <td>0.119</td>
+        </tr>
+
+        <tr>
+            <td>照片页面</td>
+            <td>30.0</td>
+            <td class="poor">差</td>
+            <td>16124</td>
+            <td>69573</td>
+            <td>16954</td>
+            <td>0.154</td>
+        </tr>
+
+        <tr>
+            <td>学习讨论页面</td>
+            <td>39.0</td>
+            <td class="poor">差</td>
+            <td>15828</td>
+            <td>48244</td>
+            <td>15828</td>
+            <td>0.000</td>
+        </tr>
+
+        <tr>
+            <td>摄影圈页面</td>
+            <td>48.0</td>
+            <td class="poor">差</td>
+            <td>15899</td>
+            <td>32931</td>
+            <td>15899</td>
+            <td>0.000</td>
+        </tr>
+
+        <tr>
+            <td>直营店画廊页面</td>
+            <td>32.0</td>
+            <td class="poor">差</td>
+            <td>16239</td>
+            <td>34407</td>
+            <td>16239</td>
+            <td>0.313</td>
+        </tr>
+    </table>
+    <h2>⚡ 交互响应测试结果</h2>
+    <table>
+        <tr>
+            <th>操作类型</th>
+            <th>响应时间 (ms)</th>
+            <th>性能等级</th>
+            <th>测试时间</th>
+            <th>备注</th>
+        </tr>
+
+        <tr>
+            <td>首页加载</td>
+            <td>1154</td>
+            <td class="poor">差</td>
+            <td>2025-06-27 15:17:14</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>照片页面跳转</td>
+            <td>220</td>
+            <td class="good">良好</td>
+            <td>2025-06-27 15:17:15</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>学习讨论页面跳转</td>
+            <td>176</td>
+            <td class="excellent">优秀</td>
+            <td>2025-06-27 15:17:16</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>摄影圈页面跳转</td>
+            <td>321</td>
+            <td class="good">良好</td>
+            <td>2025-06-27 15:17:18</td>
+            <td></td>
+        </tr>
+    </table>
+    <div class="summary">
+        <h2>📈 性能评级标准</h2>
+        <div class="metric"><span class="excellent">优秀:</span> 响应时间 ≤ 200ms, Lighthouse评分 ≥ 90</div>
+        <div class="metric"><span class="good">良好:</span> 响应时间 ≤ 500ms, Lighthouse评分 50-89</div>
+        <div class="metric"><span class="acceptable">可接受:</span> 响应时间 ≤ 1000ms</div>
+        <div class="metric"><span class="poor">差:</span> 响应时间 > 1000ms, Lighthouse评分 < 50</div>
+    </div>
+    
+    <footer style="margin-top: 40px; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+        <p>🔧 测试工具: Python + Selenium + Lighthouse</p>
+        <p>📝 报告生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
+    </footer>
+</body>
+</html>

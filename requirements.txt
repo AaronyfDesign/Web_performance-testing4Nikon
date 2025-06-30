@@ -1,0 +1,4 @@
+selenium==4.15.2
+pandas==2.3.0
+webdriver-manager==4.0.1
+pathlib
